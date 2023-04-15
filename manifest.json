@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "Popup Messages",
+  "version": "1.0",
+  "description": "Displays popup messages when text is highlighted.",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
