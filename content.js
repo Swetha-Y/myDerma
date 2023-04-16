@@ -1,4 +1,23 @@
+var skinColor = 'pale';
+var selectedText = 'test';
+
 function showMessage(message) {
+
+  message = skinColor.concat("/", selectedText);
+  // Create an img element and set its src attribute to the URL of the image file
+var img = document.createElement('img');
+img.src = 'https://i.ibb.co/pZ95Hwr/melanoma.jpg';
+//img.src = 'https://drive.google.com/file/d/1VRc5WZRnLs3SLJe5LM-HCbQrnclD2BOZ/view?usp=sharing';
+img.style.position = "absolute";
+img.style.top = "50%";
+img.style.left = "50%";
+img.weight = "50px";
+img.height = "50px";
+img.style.transform = "translate(-50%, -50%)";
+
+// Add the img element to the document body
+
+
   var popup = document.createElement("div");
   popup.style.position = "absolute";
   popup.style.top = "50%";
@@ -9,6 +28,7 @@ function showMessage(message) {
   popup.style.padding = "10px";
   popup.style.boxShadow = "5px 5px 10px rgba(0, 0, 0, 0.5)";
   popup.innerHTML = message;
+  popup.appendChild(img);
   document.body.appendChild(popup);
 
   setTimeout(function() {
@@ -17,7 +37,7 @@ function showMessage(message) {
 }
 
 document.addEventListener("mouseup", function(event) {
-  var selectedText = window.getSelection().toString().trim();
+  selectedText = window.getSelection().toString().trim();
   if (selectedText.length > 0) {
     var range = window.getSelection().getRangeAt(0);
     var rect = range.getBoundingClientRect();
@@ -51,16 +71,19 @@ document.addEventListener("mouseup", function(event) {
 
     var button1 = document.getElementById("button1");
     button1.onclick = function() {
+      skinColor = 'pale';
       showMessage("Pale");
     };
 
     var button2 = document.getElementById("button2");
     button2.onclick = function() {
+      skinColor = 'tan';
       showMessage("Tan");
     };
 
     var button3 = document.getElementById("button3");
     button3.onclick = function() {
+      skinColor = 'dark';
       showMessage("Dark");
     };
 
